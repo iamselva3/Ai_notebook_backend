@@ -60,3 +60,13 @@ Frontend
 Typescript (Vite)
 
 Tailwind CSS
+
+
+### Environment Variables
+
+Create a `.env` file in the root with the following keys:
+
+MONGO_URI=
+JWT_SECRET=
+PORT=
+OPENROUTER_API_KEY=
