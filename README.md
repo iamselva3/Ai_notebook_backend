@@ -61,6 +61,9 @@ Typescript (Vite)
 
 Tailwind CSS
 
+***RUN COMMENT***
+
+npm run build && npm start
 
 ### Environment Variables
 
