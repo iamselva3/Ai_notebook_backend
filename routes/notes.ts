@@ -90,13 +90,17 @@ import {
   protectedTest,
   createNote,
   getNotes,
+  getNoteById,
+  updateNote,
+  deleteNote,
 } from "../controller/notes"
+import { appendFile } from "node:fs/promises"
 
 const app = new Hono()
 
 // Debug middleware
 app.use("*", async (c, next) => {
-  console.log(`📝 Notes route hit: ${c.req.method} ${c.req.path}`)
+  console.log(`📝 Notes  hit: ${c.req.method} ${c.req.path}`)
   await next()
 })
 
@@ -112,5 +116,10 @@ app.get("/protected-test", protectedTest)
 // Notes routes
 app.post("/", createNote)
 app.get("/", getNotes)
+
+app.get("/:id", getNoteById)
+app.put("/:id", updateNote)
+app.patch("/:id", updateNote)
+app.delete("/:id", deleteNote)
 
 export default app

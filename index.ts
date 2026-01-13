@@ -19,7 +19,17 @@ app.use("*", async (c, next) => {
 })
 
 // CORS middleware
-app.use("*", cors())
+// app.use("*", cors())
+
+app.use(
+  "*",
+  cors({
+    origin: "*",
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowHeaders: ["Content-Type", "Authorization"],
+  })
+)
+
 
 // Mount route groups - CORRECT SYNTAX
 app.route("/auth", authRoutes)  
@@ -47,7 +57,8 @@ app.notFound((c) => {
       "/auth/ping",
       "/notes",
       "/ai",
-      "/deepai/summary"  // Added this
+      "/deepai/summary",
+      "/:id"  // Added this
     ]
   }, 404)
 })
