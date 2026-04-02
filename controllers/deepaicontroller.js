@@ -17,7 +17,7 @@ export const summarizeNote = async (req, res) => {
                 "X-Title": "Notes Summary App",
             },
             body: JSON.stringify({
-                model: "mistralai/mistral-7b-instruct",
+                model: "meta-llama/llama-3.3-70b-instruct:free",
                 messages: [
                     { role: "system", content: "Summarize clearly and concisely." },
                     { role: "user", content },
@@ -38,7 +38,7 @@ export const summarizeNote = async (req, res) => {
 
         return res.json({
             summary,
-            model: "mistral-7b-instruct",
+            model: "meta-llama/llama-3.3-70b-instruct:free",
             provider: "openrouter",
         });
     } catch (error) {
